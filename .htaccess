@@ -1,0 +1,14 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* index.php?querysystemurl=$0 [QSA]
+
+Options -Indexes
+
+<FilesMatch "\.(php|log)$">
+	Deny from all
+</FilesMatch>
+
+<FilesMatch "^index.(php)$">
+	Allow from all
+</FilesMatch>
